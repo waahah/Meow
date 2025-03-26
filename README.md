@@ -19,7 +19,7 @@
 ### 依赖
 
 ```bash
-git clone https://gitee.com/waahah/Bookmark-Cleaner.git
+git clone https://github.com/waahah/Bookmark-Cleaner.git
 cd Bookmark-Cleaner
 npm install
 ```
