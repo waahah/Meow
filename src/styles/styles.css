@@ -1,0 +1,2700 @@
+:root {
+    --system-gray: #8E8E93;
+    --system-red: #FF3B30;
+    --system-green: #34C759;
+    --system-blue: #007AFF;
+    --background-color: #F5F5F7;
+    --card-background: rgba(255, 255, 255, 0.8);
+    --card-border: rgba(255, 255, 255, 0.5);
+    --card-shadow: rgba(0, 0, 0, 0.05);
+}
+
+body {
+    font-family: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    background: linear-gradient(135deg, rgba(248, 247, 244, 1) 0%, rgba(248, 247, 244, 1) 100%);
+    color: #1d1d1f;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 80px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 0;
+    box-sizing: border-box;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #1d1d1f 0%, #434343 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.scan-stats-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+    margin: 20px 0;
+    background-color: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 2px 8px var(--card-shadow);
+    
+}
+
+.right-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+}
+/* 优化数字显示 */
+#scan-duration {
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+}
+.stat-item {
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 16px 24px;
+    min-width: 200px;
+    text-align: left;
+
+}
+
+.stat-label {
+    color: var(--system-gray);
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 500;
+    color: #1d1d1f;
+}
+
+.button {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #1d1d1f;
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.button.disabled {
+    background-color: var(--system-gray);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.results {
+    margin-top: 20px;
+}
+
+.result-item {
+    display: grid;
+    grid-template-columns: 30px 200px 250px 1fr 120px;
+    align-items: center;
+    padding: 12px 16px;
+    margin: 8px 0;
+    background: var(--card-background);
+    border-radius: 12px;
+    gap: 16px;
+    border: 1px solid var(--card-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.result-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+.bookmark-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--system-red);
+}
+
+.bookmark-title {
+    font-weight: 500;
+    color: #1d1d1f;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bookmark-url {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #0066cc;
+}
+
+.bookmark-url:hover {
+    color: #003366;
+}
+
+.bookmark-url a {
+    color: var(--system-blue);
+    text-decoration: none;
+}
+
+.bookmark-url a:hover {
+    text-decoration: underline;
+}
+
+.bookmark-path {
+    color: var(--system-gray);
+    font-size: 0.9em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.path-segment {
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.path-segment:hover {
+    background-color: var(--system-gray-light);
+    color: var(--system-blue);
+}
+
+.path-segment[title] {
+    position: relative;
+}
+
+.path-segment[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.bookmark-reason {
+    background-color: rgba(255, 86, 48, 0.1);
+    color: #ff5630;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    justify-self: end;
+    font-weight: 500;
+        /* 显示问号光标 */
+    position: relative;
+}
+/* 自定义 tooltip 样式 */
+.tooltip {
+    position: fixed;
+    /* 改用 fixed 定位，使其不受父元素影响 */
+    display: none;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: normal;
+    /* 允许文本换行 */
+    max-width: 300px;
+    /* 设置最大宽度 */
+    z-index: 1000;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 显示 tooltip */
+.bookmark-reason:hover .tooltip {
+    display: block;
+}
+.separator {
+    color: var(--system-gray);
+    margin: 0 4px;
+    font-weight: normal;
+}
+
+#clean-button {
+    background: var(--system-red);
+    color: white;
+    border: none;
+}
+
+#clean-button:hover {
+    background: linear-gradient(90deg, var(--system-red) 0%, #ff6b6b 100%);
+}
+
+@media (max-width: 1024px) {
+    .result-item {
+        grid-template-columns: 200px 250px 1fr 120px;
+        gap: 12px;
+    }
+    
+    .bookmark-title {
+        width: 200px;
+    }
+    
+    .bookmark-url {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-container {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+    
+    .stat-item {
+        padding: 16px;
+    }
+    
+    .stat-value {
+        font-size: 24px;
+    }
+    
+    .result-item {
+        grid-template-columns: 30px 1fr;
+        gap: 8px;
+        padding: 12px;
+    }
+    
+    .bookmark-title,
+    .bookmark-url,
+    .bookmark-path {
+        width: 100%;
+    }
+    
+    .bookmark-title {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+    
+    .bookmark-url {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+    
+    .bookmark-path {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    
+    .bookmark-reason {
+        justify-self: start;
+    }
+}
+
+.invalid-item {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.bookmark-info {
+    flex: 1;
+}
+
+.error-reason {
+    color: #dc3545;
+    font-size: 0.9em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background-color: #f8d7da;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+/* 预览窗口尺寸 */
+.preview-container {
+    display: none;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    /* 修改预览窗口尺寸 */
+    width: 600px;  /* 增加宽度 */
+    height: 400px; /* 增加高度 */
+    background: white;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px var(--card-shadow);
+    z-index: 1000;
+    /* 添加内边距 */
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden; /* 确保内容不会溢出 */
+}
+
+/* 预览窗口标题栏 */
+.preview-header {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    background: var(--card-background);
+    border-bottom: 1px solid var(--card-border);
+    border-radius: 12px 12px 0 0;
+    gap: 12px;
+}
+
+.preview-title {
+    flex: 1;
+    font-size: 13px;
+    color: var(--system-gray);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 8px;
+}
+
+/* 最简单的关闭按钮样式 */
+.preview-close {
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    /* 使用更通用的关闭符号 */
+    content: "\2715";  /* Unicode 叉号 */
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    /* 确保文字垂直居中 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.preview-close:hover {
+    color: var(--system-red);
+}
+
+/* iframe 高度需要相应调整 */
+.preview-frame {
+    width: 100%;
+    height: calc(100% - 40px); /* 减去标题栏高度 */
+    border: none;
+    border-radius: 0 0 12px 12px;
+    /* 添加缩放和居中效果 */
+    transform: scale(0.9); /* 稍微缩小内容 */
+    transform-origin: center center;
+    display: block;
+    margin: 0 auto;
+    background: white;
+}
+
+/* 添加预览内容容器 */
+.preview-content {
+    width: 100%;
+    height: calc(100% - 40px);
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f7; /* 轻微的背景色 */
+    border-radius: 0 0 12px 12px;
+}
+
+/* 添加响应式设计 */
+@media (max-width: 768px) {
+    .preview-container {
+        width: 90vw; /* 使用视窗宽度的90% */
+        height: 60vh; /* 使用视窗高度的60% */
+        right: 5vw;
+        left: 5vw;
+    }
+}
+
+/* 可选：添加最大/最小尺寸限制 */
+.preview-container {
+    min-width: 400px;
+    min-height: 300px;
+    max-width: 800px;
+    max-height: 600px;
+}
+
+/* 批量操作按钮组样式 */
+.batch-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 60px;
+    justify-content: start;
+}
+
+.secondary-button {
+    color: #10b981;
+    border: none;
+}
+
+.secondary-button:hover {
+    color: white;
+    background: #10b981;
+}
+
+.secondary-button:active {
+    background: #10b981;
+    color: white;
+}
+
+/* 危险按钮样式 - 使用更高的优先级 */
+.button.danger-button {
+    background: #10b981 ;
+    color: #ffffff;
+}
+
+/* 危险按钮禁用状态 */
+.button.danger-button[disabled] {
+    background: #ffffff;
+    color: #10b981;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 危险按钮启用状态 */
+.button.danger-button:not([disabled]) {
+    background: #ff0000;
+    cursor: pointer;
+}
+
+/* 危险按钮悬停效果 */
+.button.danger-button:not([disabled]):hover {
+    background: #ff0000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(108, 172, 153, 0.3);
+}
+
+/* 危险按钮点击效果 */
+.button.danger-button:not([disabled]):active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(108, 172, 153, 0.2);
+}
+
+
+/* 选中状态的结果项样式 */
+.result-item.selected {
+    background: rgba(108, 172, 153, 0.1);
+    border-color: #10b981;
+}
+
+/* 更新结果容器样式 */
+#invalidList {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 16px;
+    margin: 20px 0;
+    scroll-behavior: smooth;
+    /* 添加平滑滚动效果 */
+    overscroll-behavior: contain;
+    /* 添加滚动条样式 */
+    scrollbar-width: thin;
+    scrollbar-color: #d2d2d2;
+}
+
+/* 自定义滚动条样式（Webkit浏览器） */
+#invalidList::-webkit-scrollbar {
+    width: 8px;
+}
+
+#invalidList::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+#invalidList::-webkit-scrollbar-thumb {
+    background: var(--system-gray);
+    border-radius: 4px;
+}
+
+#invalidList::-webkit-scrollbar-thumb:hover {
+    background: var(--system-blue);
+}
+
+/* 优化结果项样式 */
+.result-item {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    margin: 8px 0;
+}
+
+.result-item:hover {
+    transform: translateX(4px);
+    background-color: rgba(0, 122, 255, 0.05);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    #invalidList {
+        max-height: 400px;
+    }
+}
+
+/* 扫描按钮容器 */
+.scan-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 32px 0;
+}
+
+/* 环形按钮基础样式 */
+.circular-button {
+    position: relative;
+    width: 160px; /* 增加尺寸 */
+    height: 160px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-background);
+    border: none; /* 移除边框 */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+/* 按钮文本样式 */
+.circular-button .button-text {
+    position: absolute;
+    font-size: 17px; /* Apple 常用字号 */
+    font-weight: 500;
+    color: var(--system-blue);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* 进度文本样式 */
+.circular-button .progress-text {
+    position: absolute;
+    font-size: 32px; /* 更大的进度数字 */
+    font-weight: 500; /* Semi-bold */
+    color: var(--system-blue);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* SVG进度环样式 */
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+.progress-ring-circle-bg {
+    fill: none;
+    stroke: rgba(0, 122, 255, 0.1); /* 更淡的背景色 */
+    stroke-width: 6; /* 更粗的线条 */
+}
+
+.progress-ring-circle {
+    stroke-linecap: round;
+    transform: rotate(-90deg); /* 保持圆弧从顶部开始 */
+    transform-origin: 50% 50%;
+}
+
+/* 按钮悬停效果 */
+.circular-button:hover {
+    transform: scale(1.02); /* 更细微的缩放 */
+    box-shadow: 0 4px 16px rgba(0, 122, 255, 0.15);
+}
+
+.circular-button:active {
+    transform: scale(0.98);
+}
+
+/* 扫描状态样式 */
+.circular-button.scanning {
+    background: rgba(0, 122, 255, 0.05); /* 轻微的背景色变化 */
+}
+
+.circular-button.scanning .button-text {
+    opacity: 0;
+}
+
+.circular-button.scanning .progress-text {
+    opacity: 1;
+}
+
+/* 添加区域标题样式 */
+.section-header {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--system-gray);
+    padding: 16px 0 8px;
+    margin-top: 16px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+/* 空文件夹标签样式 */
+.empty-folder-tag {
+    background: var(--system-gray);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    justify-self: end;
+    font-weight: 500;
+}
+
+/* 空文件夹项目样式 */
+.empty-folder {
+    background: rgba(142, 142, 147, 0.1);
+}
+
+/* 筛选标签容器 */
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 32px 0;
+}
+
+/* 筛选标签样式 */
+.filter-tag {
+    position: relative; /* 添加相对定位 */
+    padding: 8px 16px;
+    border-radius: 12px;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    font-size: 13px;
+    color: var(--system-gray);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.filter-tag:hover {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border-color: #10b981;
+}
+
+.filter-tag.active {
+    background: #ffffff;
+    color: #10b981;
+    border-color: #10b981;
+}
+
+/* 添加提示框样式 */
+.filter-tag[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: normal;
+    width: 100%;
+    z-index: 1000;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .filter-tags {
+        padding: 0 8px;
+    }
+    
+    .filter-tag {
+        padding: 4px 10px;
+        font-size: 13px;
+    }
+}
+
+.bookmark-profile {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+
+
+.profile-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    width: 100%;
+}
+
+.profile-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+.profile-title h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+    color: #1d1d1f;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    gap: 4px;
+}
+.profile-title h2 .nickname {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+    /* 允许昵称占用更多空间 */
+}
+.profile-title h2 .profile-text {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    margin-left: 4px;
+}
+
+.level-badge {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 122, 255, 0.1);
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #10b981;
+}
+.level {
+    position: relative;
+    cursor: pointer;
+}
+.level-tooltip {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 1);
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    width: 280px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 添加小箭头 */
+.level-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid rgba(0, 0, 0, 0.9);
+}
+
+.level:hover .level-tooltip {
+    display: block;
+}
+
+.tooltip-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.level-tooltip ul {
+    margin: 0;
+    padding-left: 16px;
+    list-style-type: none;
+}
+
+.level-tooltip li {
+    margin: 4px 0;
+    position: relative;
+}
+
+.level-tooltip li::before {
+    content: '•';
+    position: absolute;
+    left: -12px;
+    color: var(--system-blue);
+}
+
+.tooltip-note {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+}
+/* 收藏者称号提示样式 */
+.collector {
+    position: relative;
+    cursor: pointer;
+}
+
+.collector-tooltip {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 1);
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    width: 320px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.collector-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid rgba(0, 0, 0, 0.9);
+}
+
+.collector:hover .collector-tooltip {
+    display: block;
+}
+
+.title-list {
+    margin: 12px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.title-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 0;
+    color: rgba(255, 255, 255, 1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.title-item.current {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.title-level {
+    width: 50px;
+}
+
+.title-name {
+    flex: 1;
+    padding: 0 12px;
+}
+
+.title-score {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.next-level-note {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--system-green);
+    font-size: 12px;
+}
+.calculation-formula {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    opacity: 0.8;
+}
+.calculation-formula div {
+    margin: 4px 0;
+}
+
+/* 滚动条样式优化 */
+.title-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.title-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.title-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.title-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.profile-date {
+    color: var(--system-gray);
+    font-size: 14px;
+    margin-top: 8px;
+    margin-left: 4px;
+}
+
+.share-button {
+    flex: 0 0 auto;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: #10b981;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.share-button:hover {
+    background: #10b981;
+}
+
+/* 主要内容区布局 */
+.profile-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    .bookmark-profile {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .profile-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .profile-title h2 {
+        font-size: 24px;
+    }
+}
+
+/* 概览区样式 */
+.overview-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.stat-item {
+    border-radius: 16px;
+    padding: 24px;
+    text-align: left;
+}
+
+/* 为每个统计项添加特定图标 */
+.overview-stats .stat-item:nth-child(1) .stat-label::before {
+    content: "📚";
+    margin-right: 8px;
+    /* 总书签数 */
+}
+
+.overview-stats .stat-item:nth-child(2) .stat-label::before {
+    content: "📁";
+    margin-right: 8px;
+    /* 文件夹数 */
+}
+
+.overview-stats .stat-item:nth-child(3) .stat-label::before {
+    content: "📅";
+    margin-right: 8px;
+    /* 收藏天数 */
+}
+/* 为每个统计项添加特定图标 */
+.stats-container .stat-item:nth-child(1) .stat-label::before {
+    content: "🕒";
+    margin-right: 8px;
+    /* 时间 */
+}
+
+.stats-container .stat-item:nth-child(2) .stat-label::before {
+    content: "📚";
+    margin-right: 8px;
+    /* 书签数 */
+}
+
+.stats-container .stat-item:nth-child(3) .stat-label::before {
+    content: "💔";
+    margin-right: 8px;
+    /* 坏掉 */
+}
+.stats-container .stat-item:nth-child(4) .stat-label::before {
+    content: "🗑️";
+    margin-right: 8px;
+    /* 空文件夹 */
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+/* 统计卡片行样式 */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.stat-card {
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 16px;
+    width: 158px;
+}
+
+.card-label {
+    font-size: 13px;
+    color: #86868b;
+    margin-bottom: 8px;
+}
+
+.card-value {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1d1d1f;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    /* Prevents text from wrapping to the next line */
+    overflow: hidden;
+    /* Hides the overflow text */
+    text-overflow: ellipsis;
+    /* Adds an ellipsis (...) to indicate overflow */
+}
+
+.card-subtext {
+    font-size: 12px;
+    color: #86868b;
+}
+
+/* 域名分析区域样式优化 */
+.domain-analysis {
+    background: white;
+    border-radius: 24px;
+}
+
+.domain-analysis h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 24px;
+}
+
+/* 域名列表容器 - 使用网格布局创建左右分栏 */
+.domain-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+/* 左侧主要域名卡片 */
+.domain-item.primary {
+    grid-column: 1;
+    background: #f5f5f7;
+    border-radius: 16px;
+    padding: 24px;
+    border: none;
+    height: 320px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 162px;
+}
+
+.domain-item.primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--card-shadow);
+}
+
+.primary .domain-info {
+    padding: 16px 0;
+}
+
+.primary .domain-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.primary .domain-content {
+    margin-top: 16px;
+}
+
+.primary .domain-meta {
+    font-size: 14px;
+    color: var(--system-gray);
+}
+
+/* 右侧域名列表容器 */
+.domain-list-secondary {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+/* 右侧次要域名卡片 */
+.domain-item.secondary {
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 16px;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 166px;
+}
+
+.domain-item.secondary:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+/* 域名图标样式 */
+.domain-favicon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+/* 域名信息区域样式 */
+.domain-info {
+    flex: 1;
+}
+
+.domain-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1d1d1f;
+    margin-bottom: 4px;
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
+    overflow: hidden;    /* Hides the overflow text */
+    text-overflow: ellipsis; /* Adds an ellipsis (...) to indicate overflow */
+}
+
+.domain-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bookmark-count {
+    font-size: 13px;
+    color: var(--system-gray);
+}
+
+.domain-percentage {
+    font-size: 13px;
+    color: var(--system-gray);
+    padding: 2px 8px;
+    background: rgba(142, 142, 147, 0.1);
+    border-radius: 10px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .domain-list {
+        grid-template-columns: 1fr;
+    }
+
+    .domain-item.primary,
+    .domain-list-secondary {
+        grid-column: 1;
+    }
+    
+    .domain-analysis {
+        padding: 20px;
+    }
+    
+    .domain-item.primary {
+        padding: 20px;
+    }
+}
+
+/* 趋势图样式 */
+.trend-chart {
+    padding: 20px;
+    background: var(--background-secondary);
+    border-radius: 16px;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.chart-timeline {
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-color);
+}
+
+.timeline-labels {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* 概览统计样式优化 */
+.overview-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-item {
+    padding: 20px;
+    border-radius: 12px;
+}
+
+
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* 日期范围样式 */
+.profile-date-range {
+    color: var(--system-gray);
+    font-size: 14px;
+    margin-top: 8px;
+    margin-left: 4px;
+    font-weight: 400;
+}
+
+/* 调整标题区域的布局 */
+.profile-header {
+    margin-bottom: 16px;
+}
+
+.profile-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.profile-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+
+/* 添加趋势图相关样式 */
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+}
+
+.chart-container svg {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+#chart-tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+}
+
+/* 确保图表容器有足够空间 */
+.trend-chart {
+    border-radius: 16px;
+    min-height: 240px;
+}
+.overview-title{
+    font-size: 20px;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+/* 导航栏样式 */
+.app-header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--card-border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 16px 0;
+}
+
+/* 导航标签容器样式 - 确保与主内容对齐 */
+.nav-tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    max-width: 1280px;
+    width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+/* 品牌区域样式 */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.brand-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+}
+.brand-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #10b981;
+    white-space: nowrap;
+}
+
+/* 导航标签样式优化 */
+.nav-tab {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--system-gray);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: transparent;
+    font-size: 16px;
+}
+/* 导航链接容器 */
+.nav-links {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-tab:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+    color: #10b981;
+}
+
+.nav-tab.active {
+    
+    color: #10b981;
+    
+    
+}
+
+.tab-icon {
+    font-size: 20px;
+}
+
+
+/* 响应式设计优化 */
+@media (max-width: 768px) {
+    .nav-tabs,
+    .container {
+        width: 95%; /* 在移动端略微增加宽度利用率 */
+    }
+    
+    .app-header {
+        padding: 12px 0;
+    }
+}
+
+/* 扫描容器整体布局 */
+.scan-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.settings-button {
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    background: transparent;
+    border: 1px solid #10b981;
+    color: #10b981;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.settings-button:hover {
+    background: rgba(0, 122, 255, 0.1);
+}
+
+.settings-button:active {
+    transform: scale(0.98);
+}
+
+/* 环形进度容器 */
+.progress-ring-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 环形进度 SVG 样式优化 */
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+    width: 160px;
+    height: 160px;
+}
+
+.progress-ring-circle-bg {
+    fill: none;
+    stroke: rgba(0, 122, 255, 0.05);
+    stroke-width: 14;
+}
+
+.progress-ring-circle {
+    fill: none;
+    stroke: #10b981;
+    stroke-width: 14;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 1px rgba(0, 122, 255, 0.3));
+    transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 进度点优化 */
+.progress-dot {
+    fill: #10b981;
+    r: 3.5;
+    filter: drop-shadow(0 0 2px rgba(0, 122, 255, 0.4));
+    transition: cx 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                cy 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 进度文本容器 */
+.progress-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+/* 进度文本样式优化 */
+.progress-text {
+    font-size: 32px;
+    font-weight: 200;
+    color: #10b981;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -1px;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+/* 状态文本 */
+.progress-status {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 500;
+    opacity: 1;
+    transform: translateY(-8px);
+    transition: all 0.3s ease;
+}
+
+/* 扫描按钮样式优化 */
+.scan-button {
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 6px rgba(108, 172, 153, 0.2);
+}
+
+.scan-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(108, 172, 153, 0.25);
+    background: #10b981;
+}
+
+.scan-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 122, 255, 0.2);
+}
+
+/* 扫描状态样式 */
+.scanning .progress-ring-container {
+    transform: scale(1.02);
+}
+
+.scanning .progress-status {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scanning .scan-button {
+    opacity: 0.7;
+    transform: scale(0.98);
+    background: #ffffff;
+    color: #10b981; 
+    border: 1px solid #10b981;
+}
+
+/* 添加完成状态动画 */
+@keyframes completePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.scan-complete .progress-ring-container {
+    animation: completePulse 0.5s ease-out;
+}
+/* 撒花容器 */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+/* 单个撒花的基础样式 */
+.confetti {
+    position: absolute;
+    border-radius: 2px;
+    opacity: 0;
+    transform-origin: center;
+}
+
+/* 烟花爆开动画 */
+@keyframes confetti-explosion {
+    0% {
+        transform: translate(-50%, -50%) scale(0.1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    35% {
+        transform: translate(calc(-50% + var(--spread-x)),
+                calc(-50% + var(--spread-y))) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(calc(-50% + var(--spread-x)),
+                calc(-50% + var(--spread-y))) scale(0.5);
+        opacity: 0;
+    }
+}
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .scan-stats-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .right-content {
+        width: 100%;
+    }
+
+    .stats-container {
+        flex-direction: column;
+    }
+
+    .stat-item {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* 分类标签样式 */
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 32px 0 0 0;
+    padding: 0 16px;
+    min-height: 32px;
+    /* 确保即使没有标签时也保持一定高度 */
+}
+
+.category-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: var(--card-background);
+    border: 1px solid var(--card-border);
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.category-tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px var(--card-shadow);
+}
+
+.tag-label {
+    white-space: nowrap;
+}
+
+.tag-percentage {
+    font-size: 12px;
+    opacity: 0.8;
+    padding-left: 4px;
+    border-left: 1px solid currentColor;
+    margin-left: 4px;
+}
+/* 模态框样式 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: var(--card-background);
+    border-radius: 16px;
+    padding: 24px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 24px var(--card-shadow);
+}
+
+.modal-header {
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-top: 0px;
+}
+
+.modal-body {
+    margin-bottom: 24px;
+}
+
+.nickname-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 12px;
+    box-sizing: border-box;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.modal-button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal-button.cancel {
+    background: var(--background-color);
+    color: var(--system-gray);
+}
+
+.modal-button.confirm {
+    background: #10b981;
+    color: white;
+}
+
+.modal-button:hover {
+    transform: translateY(-1px);
+}
+/* 添加提示框样式 */
+.cat-tooltip {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #666;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+/* 让猫咪可点击 */
+.moving-cat {
+    cursor: pointer;
+    /* ... 保持现有样式 ... */
+}
+.moving-cat-container {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    margin: 20px 0 0 0;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.moving-cat {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    animation: catMove 30s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    will-change: transform, left;
+}
+
+@keyframes catMove {
+    0% {
+        left: 0;
+        transform: translateY(0);
+    }
+
+    15% {
+        left: calc(25% - 12px);
+        transform: translateY(-20px);
+    }
+
+    30% {
+        left: calc(50% - 24px);
+        transform: translateY(15px);
+    }
+
+    35% {
+        left: calc(100% - 48px);
+        transform: translateY(-18px);
+    }
+
+    45% {
+        left: calc(100% - 48px);
+        transform: translateY(0);
+    }
+
+    60% {
+        left: calc(50% - 24px);
+        transform: translateY(-25px);
+    }
+
+    75% {
+        left: calc(25% - 12px);
+        transform: translateY(18px);
+    }
+
+    85% {
+        left: 0;
+        transform: translateY(-15px);
+    }
+
+    95% {
+        left: 0;
+        transform: translateY(0);
+    }
+
+    100% {
+        left: 0;
+        transform: translateY(0);
+    }
+}
+/* 为每个统计卡片添加特定图标 */
+/* 第一行统计卡片图标 */
+.first-row .stat-card:nth-child(1) .card-label::before {
+    content: "📁";
+    /* 最大文件夹 */
+    margin-right: 8px;
+}
+
+.first-row .stat-card:nth-child(2) .card-label::before {
+    content: "🗑️";
+    /* 空文件夹 */
+    margin-right: 8px;
+}
+
+.first-row .stat-card:nth-child(3) .card-label::before {
+    content: "📊";
+    /* 文件夹最大深度 */
+    margin-right: 8px;
+}
+
+.first-row .stat-card:nth-child(4) .card-label::before {
+    content: "📅";
+    /* 最早书签 */
+    margin-right: 8px;
+}
+
+.first-row .stat-card:nth-child(5) .card-label::before {
+    content: "🕒";
+    /* 最新书签 */
+    margin-right: 8px;
+}
+
+.first-row .stat-card:nth-child(6) .card-label::before {
+    content: "📈";
+    /* 收藏高峰 */
+    margin-right: 8px;
+}
+
+/* 第二行统计卡片图标 */
+.second-row .stat-card:nth-child(1) .card-label::before {
+    content: "📊";
+    /* 平均每文件夹书签数 */
+    margin-right: 8px;
+}
+
+.second-row .stat-card:nth-child(2) .card-label::before {
+    content: "🎯";
+    /* 组织评分 */
+    margin-right: 8px;
+}
+
+.second-row .stat-card:nth-child(3) .card-label::before {
+    content: "🏷️";
+    /* 常用关键词 */
+    margin-right: 8px;
+}
+
+.second-row .stat-card:nth-child(4) .card-label::before {
+    content: "🌐";
+    /* 不同域名数 */
+    margin-right: 8px;
+}
+
+.second-row .stat-card:nth-child(5) .card-label::before {
+    content: "🔒";
+    /* HTTPS 比例 */
+    margin-right: 8px;
+}
+
+.second-row .stat-card:nth-child(6) .card-label::before {
+    content: "🔄";
+    /* 重复网址 */
+    margin-right: 8px;
+}
+
+/* 确保图标和文字垂直对齐 */
+.card-label {
+    display: flex;
+    align-items: center;
+}
+
+.card-label::before {
+    display: inline-block;
+    vertical-align: middle;
+}
+/* 添加分类标签的悬停提示样式 */
+.category-tag {
+    position: relative;
+    /* 为tooltip定位 */
+}
+
+.category-tag .domain-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    white-space: normal;
+    width: 280px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.category-tag:hover .domain-tooltip {
+    display: block;
+}
+
+/* 添加小箭头 */
+.category-tag .domain-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid rgba(0, 0, 0, 0.8);
+}
+
+/* 域名列表样式 */
+.domain-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.domain-list li {
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.domain-list li:last-child {
+    border-bottom: none;
+}
+/* 对话框遮罩层 */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+/* 对话框容器 */
+.dialog {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 24px;
+    width: 90%;
+    max-width: 460px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+}
+
+/* 对话框标题 */
+.dialog h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+/* 设置项容器 */
+.setting-item {
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+label.setting-label {
+    font-size: 14px;
+}
+
+/* 滑块样式 */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: #10b981;
+    outline: none;
+    margin-top: 24px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #10b981;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 按钮容器 */
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* 按钮基础样式 */
+.dialog-actions button {
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+
+
+.secondary-button:hover {
+    background: #10b981;
+}
+
+/* 确认按钮 */
+.dialog-actions button:not(.secondary-button) {
+    background: #10b981;
+    color: white;
+}
+
+.dialog-actions button:not(.secondary-button):hover {
+    background: #10b981;
+    transform: translateY(-1px);
+}
+
+/* 超时时间显示 */
+.timeout-display {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeout-unit {
+    font-size: 16px;
+    color: #86868b;
+    margin-left: 4px;
+}
+/* 超时说明文字样式 */
+.timeout-explanation {
+    margin: 16px 0;
+    color: var(--system-gray);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.timeout-explanation p {
+    margin-bottom: 12px;
+}
+
+.timeout-tips {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--system-gray);
+}
+
+.timeout-tips li {
+    margin: 6px 0;
+}
+/* Toast 提示样式 */
+.toast {
+    position: fixed;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 1000;
+    animation: toast-in 0.3s ease;
+}
+
+.toast-hide {
+    animation: toast-out 0.3s ease forwards;
+}
+
+@keyframes toast-in {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes toast-out {
+    from {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+}
+/* 修改对话框样式 */
+#confirm-navigation-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    z-index: 1000;
+}
+
+/* 添加遮罩层 */
+.dialog-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+/* 对话框内容样式 */
+.dialog-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    z-index: 1;
+}
+.dialog {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+}
+
+.dialog-content h3 {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.dialog-content p {
+    margin: 0 0 24px 0;
+    color: var(--system-gray);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 对话框按钮容器 */
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* 对话框按钮样式 */
+.dialog-buttons button {
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+/* 取消按钮样式 */
+.dialog-buttons .secondary-button {
+    background: transparent;
+    color: #10b981;
+    border: 1px solid #10b981;
+}
+
+/* 确认按钮样式 */
+.dialog-buttons .primary-button {
+    background: #10b981;
+    color: white;
+}
+
+/* 按钮悬停效果 */
+.dialog-buttons button:hover {
+    transform: translateY(-1px);
+}
+
+.dialog-buttons .secondary-button:hover {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.dialog-buttons .primary-button:hover {
+    background: #0ea371;
+}
+/* 重复书签页面样式 */
+.duplicate-groups {
+    margin-top: 32px;
+}
+
+.duplicate-group {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.duplicate-group:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+.group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+    /* 增加组件之间的间距 */
+}
+.group-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+.favicon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.url {
+    color: var(--system-blue);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 700px;
+    /* 限制最大宽度 */
+    display: inline-block;
+    font-size: 14px;
+    /* 稍微减小字体大小 */
+}
+
+.url:hover {
+    text-decoration: underline;
+}
+
+.count {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.group-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bookmark-item {
+    display: grid;
+    grid-template-columns: 30px 1fr auto;
+    gap: 16px;
+    padding: 16px;
+    background: #f5f5f7;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.bookmark-item:hover {
+    background: #f0f0f2;
+}
+.bookmark-added-time {
+    color: var(--system-gray);
+    font-size: 13px;
+    white-space: nowrap;
+    padding-left: 16px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.item-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.keep-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: #ff0000;
+    cursor: pointer;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.item-title {
+    font-weight: 500;
+    color: #1d1d1f;
+}
+
+.item-meta {
+    display: flex;
+    gap: 24px;
+    color: var(--system-gray);
+    font-size: 13px;
+}
+
+
+/* 操作按钮区域基础样式 */
+.duplicate-options {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    position: sticky;
+    top: 0px;
+    /* 调整固定位置，避免被顶部导航栏遮挡 */
+    z-index: 100;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease, border-bottom 0.3s ease;
+    margin: 0;
+}
+
+/* 滚动时的样式 */
+.duplicate-options.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+}
+.container {
+    padding-top: 24px;
+}
+
+.duplicate-options button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.duplicate-options button[data-action="keepNewest"] {
+    background: #10b981;
+    color: #ffffff;
+}
+.duplicate-options button[data-action="keepNewest"]:hover{
+    background: #10b981;
+    color: #ffffff;
+}
+
+.duplicate-options button[data-action="keepOldest"] {
+    background: #ffffff;
+    color: #10b981;
+}
+.duplicate-options button[data-action="keepOldest"]:hover{
+    background: #10b981;
+    color: #ffffff;
+}
+
+.duplicate-options button[data-action="keepManual"] {
+    background: rgba(142, 142, 147, 0.1);
+    color: var(--system-gray);
+}
+.duplicate-options button[data-action="keepManual"]:hover{
+    background: #10b981;
+    color: #ffffff;
+}
+
+.duplicate-options button:hover {
+    transform: translateY(-1px);
+}
+
+/* 无重复书签提示 */
+.no-duplicates {
+    text-align: center;
+    padding: 48px 0;
+    color: #1d1d1f;
+    font-size: 16px;
+    font-weight: 500;
+}
+/* 组标题中的复选框样式 */
+.group-checkbox {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    cursor: pointer;
+    accent-color: #ff0000;
+}
+
+/* 调整组标题布局 */
+.group-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    /* 确保flex子项可以正确收缩 */
+}
+
+
+/* 文件夹路径提示框样式 */
+.folder-path-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    z-index: 1000;
+    pointer-events: none;
+    animation: tooltip-fade-in 0.2s ease;
+}
+
+.folder-path-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.8);
+}
+
+@keyframes tooltip-fade-in {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* 确保统计卡片可以正确显示提示框 */
+.stat-card {
+    position: relative;
+}
+
+.brand {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.version-tag {
+    font-size: 12px;
+    color: var(--system-gray);
+    opacity: 0.8;
+    margin-left: 4px;
+    font-weight: normal;
+}
+.success-state {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--card-background);
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.success-icon {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.cat-icon {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.success-badge {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 32px;
+    height: 32px;
+    background: #34C759;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border: 3px solid var(--card-background);
+}
+
+.success-message h3 {
+    color: var(--text-primary);
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.success-message p {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.success-tips {
+    margin-top: 24px;
+    padding: 16px;
+    background: var(--background-secondary);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.success-tips p {
+    margin: 0;
+}

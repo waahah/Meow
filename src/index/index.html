@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookmark Cleaner</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="app-header">
+        <nav class="nav-tabs">
+            <div class="brand">
+                <img src="../../public/icons/logo.jpg" alt="Lazy Cat Bookmark Cleaner" class="brand-logo">
+                <span class="brand-name" data-i18n="brandName">猫咪书签清理</span>
+            </div>
+            <div class="nav-links">
+                <a href="../index/index.html" class="nav-tab active" target="_blank">
+                    <span class="tab-icon">🧹</span>
+                    <span data-i18n="invalidBookmarksTab">失效书签</span>
+                </a>
+                <a href="../duplicates/index.html" class="nav-tab" target="_blank">
+                    <span class="tab-icon">🔄</span>
+                    <span data-i18n="duplicatesTab">重复书签</span>
+                </a>
+                <a href="../profile/index.html" class="nav-tab" target="_blank">
+                    <span class="tab-icon">📊</span>
+                    <span data-i18n="profileTab">书签画像</span>
+                </a>
+                <a href="https://github.com/waahah/TabMark" class="nav-tab" target="_blank">
+                    <span class="tab-icon">📑</span>
+                    <span data-i18n="newTab">书签新标签页</span>
+                </a>
+                <a href="https://waahah.xyz/about/" class="nav-tab" target="_blank">
+                    <span class="tab-icon">👨‍💻</span>
+                    <span data-i18n="aboutAuthor">关于作者</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="confetti-container">
+            <!-- 撒花元素会通过 JavaScript 动态生成 -->
+        </div>
+        <div class="scan-stats-wrapper">
+            <div class="progress-ring-container">
+                <svg class="progress-ring" width="160" height="160">
+                    <circle class="progress-ring-circle-bg" 
+                            cx="80" cy="80" r="70"/>
+                    <circle class="progress-ring-circle" 
+                            cx="80" cy="80" r="70"/>
+                </svg>
+                <div class="progress-content">
+                    <span class="progress-text">51%</span>
+                </div>
+            </div>
+            
+            <div class="right-content">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-label" data-i18n="scanDuration">Scan Duration</div>
+                        <div class="stat-value">
+                            <span id="scan-duration">0</span>s
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label" data-i18n="totalBookmarks">Total Bookmarks</div>
+                        <div class="stat-value">
+                            <span id="scanned-bookmarks">669</span>/<span id="total-bookmarks">812</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label" data-i18n="invalidLinks">Invalid Links</div>
+                        <div class="stat-value" id="invalid-links">98</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label" data-i18n="emptyFolders">Empty Folders</div>
+                        <div class="stat-value" id="empty-folders">0</div>
+                    </div>
+                </div>
+
+                <div class="scan-container">
+                    <button id="scan-button" class="scan-button">
+                        <span class="button-text">Scan Bookmarks</span>
+                    </button>
+                    <button id="settings-button" class="settings-button">
+                        <span data-i18n="scanSettings">扫描设置</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cat-tooltip" style="display: none;">
+            <span class="tooltip-text"></span>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <!-- 移除了旧的进度条 -->
+        </div>
+
+        <div class="batch-actions" style="display: none;">
+            <button id="select-all" class="button secondary-button">
+                <span data-i18n="selectAll">Select All</span>
+            </button>
+            <button id="delete-selected" class="button danger-button">
+                <span data-i18n="deleteSelected">Delete Selected</span>
+            </button>
+        </div>
+
+        <div class="filter-tags">
+            <!-- 标签会通过 JavaScript 动态生成 -->
+        </div>
+
+        <div class="preview-container" id="preview-container">
+            <div class="preview-header">
+                <span class="preview-title" id="preview-title"></span>
+                <button class="preview-close" id="preview-close">&#x2715;</button>
+            </div>
+            <iframe id="preview-frame" class="preview-frame"></iframe>
+        </div>
+
+        <div id="timeout-dialog" class="dialog-overlay">
+            <div class="dialog">
+                <h3 data-i18n="setTimeoutTitle">设置超时时间</h3>
+                
+                <div class="setting-item">
+                    <label for="timeout-value" data-i18n="timeoutLabel" class="setting-label">
+                        请选择每个链接的检查超时时间（秒）：
+                    </label>
+                                        
+                    <input type="range" 
+                           id="timeout-value" 
+                           min="5" 
+                           max="30" 
+                           value="10"
+                           step="1">
+                    <div class="timeout-display">
+                        <span id="timeout-display">10</span>
+                        <span class="timeout-unit">s</span>
+                    </div>
+
+                </div>
+
+                <div class="timeout-explanation">
+                    <p data-i18n="timeoutExplanation">
+                        超时时间决定了检查每个链接时的最长等待时间。时间越长，检查越充分，但整体扫描时间会更久；时间越短，扫描越快，但可能会误判部分加载较慢的网站。
+                    </p>
+                    <ul class="timeout-tips">
+                        <li data-i18n="timeoutTip1">• 建议值：10-15 秒</li>
+                        <li data-i18n="timeoutTip2">• 网络较差时建议设置更长时间</li>
+                        <li data-i18n="timeoutTip3">• 链接较多时可以适当缩短时间</li>
+                    </ul>
+                </div>
+
+                <div class="dialog-actions">
+                    <button id="cancel-timeout" class="secondary-button" data-i18n="cancel">取消</button>
+                    <button id="confirm-timeout" data-i18n="confirm">确认</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="confirm-navigation-dialog" class="dialog-overlay">
+            <div class="dialog-backdrop"></div>
+            <div class="dialog-container">
+                <div class="dialog">
+                    <div class="dialog-content">
+                        <h3 data-i18n="navigationConfirmTitle">切换页面确认</h3>
+                        <p data-i18n="navigationConfirmMessage">正在扫描书签，切换页面将中断扫描。是否确认切换？</p>
+                    </div>
+                    <div class="dialog-buttons">
+                        <button class="secondary-button" data-i18n="cancel">取消</button>
+                        <button class="primary-button" data-i18n="confirm">确认</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="invalidList" class="results"></div>
+    </div>
+    <script type="module" src="index.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,670 @@
+{
+  "extName": {
+    "message": "猫咪书签清理"
+  },
+  "extDescription": {
+    "message": "一键清理失效书签、重复书签和空文件夹，生成个性化书签画像，所有功能完全本地运行，保护您的隐私安全"
+  },
+  "totalBookmarks": {
+    "message": "书签总数"
+  },
+  "invalidLinks": {
+    "message": "待确认链接"
+  },
+  "emptyFolders": {
+    "message": "空文件夹"
+  },
+  "scanBookmarks": {
+    "message": "扫描书签"
+  },
+  "allValid": {
+    "message": "✓ 所有书签都有效且组织良好！"
+  },
+  "successCleaned": {
+    "message": "成功清理 $COUNT$ 个项目",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorScanning": {
+    "message": "扫描书签时出错：$ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCleaning": {
+    "message": "清理书签时出错：$ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "totalBookmarksCount": {
+    "message": "$SCANNED$/$TOTAL$",
+    "placeholders": {
+      "scanned": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "selectAll": {
+    "message": "全选"
+  },
+  "deleteSelected": {
+    "message": "删除所选"
+  },
+  "confirmDelete": {
+    "message": "确定要删除已选择的 $COUNT$ 个项目吗？",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorType_connectionError": {
+    "message": "连接失败"
+  },
+  "errorType_dnsError": {
+    "message": "域名未找到"
+  },
+  "errorType_requestTimeout": {
+    "message": "请求超时"
+  },
+  "errorType_sslError": {
+    "message": "安全证书错误"
+  },
+  "errorType_pageNotFound": {
+    "message": "页面不存在"
+  },
+  "errorType_accessDenied": {
+    "message": "访问被拒绝"
+  },
+  "errorType_serverError": {
+    "message": "服务器错误"
+  },
+  "errorType_emptyFolder": {
+    "message": "空文件夹"
+  },
+  "errorType_all": {
+    "message": "全部项目"
+  },
+  "errorType_tooManyRedirects": {
+    "message": "重定向次数过多"
+  },
+  "errorType_networkError": {
+    "message": "网络连接错误"
+  },
+  "errorType_unknown": {
+    "message": "未知错误"
+  },
+  "bookmarkProfile": {
+    "message": "懒猫书签画像"
+  },
+  "shareProfile": {
+    "message": "分享"
+  },
+  "profileLevel": {
+    "message": "懒猫等级"
+  },
+  "profileTimeSpan": {
+    "message": "收藏时长"
+  },
+  "profileOrgScore": {
+    "message": "整理评分"
+  },
+  "years": {
+    "message": "年"
+  },
+  "collectorTitle": {
+    "message": "收藏达人"
+  },
+  "totalBookmarksLabel": {
+    "message": "总书签数"
+  },
+  "foldersLabel": {
+    "message": "文件夹"
+  },
+  "maxDepthLabel": {
+    "message": "文件夹最大层级"
+  },
+  "collectionDaysLabel": {
+    "message": "收藏天数"
+  },
+  "achievements": {
+    "message": "已获得成就"
+  },
+  "domainAnalysis": {
+    "message": "域名分析"
+  },
+  "folderInsights": {
+    "message": "文件夹洞察"
+  },
+  "timeInsights": {
+    "message": "时间轴"
+  },
+  "bookmarkTags": { 
+    "message": "标签"
+  },
+  "bookmarks": {
+    "message": "书签"
+  },
+  "subFolders": {
+    "message": "子文件夹"
+  },
+  "largestFolderLabel": {
+    "message": "最大文件夹"
+  },
+  "emptyFoldersLabel": {
+    "message": "空文件夹"
+  },
+  "bookmarksCount": {
+    "message": "个书签",
+    "description": "Text displayed in timeline tooltip"
+  },
+    "oldestBookmarkLabel": {
+      "message": "最早书签"
+    },
+  "latestBookmarkLabel": {
+    "message": "最新书签"
+  },
+  "bookmarkPeakLabel": {
+    "message": "收藏高峰"
+  },
+    "durationDays": {
+      "message": "收藏天数"
+    },
+    "yearlyGrowth": {
+      "message": "年度环比"
+    },
+    "recentAdditions": {
+      "message": "近30天新增"
+    },
+    "oldestBookmark": {
+      "message": "最早书签"
+    },
+    "organizationTips": {
+      "message": "整理建议"
+    },
+    "growthRate": {
+      "message": "$RATE$%",
+      "placeholders": {
+        "rate": {
+          "content": "$1"
+        }
+      }
+    },
+  "overview": {
+    "message": "概览"
+  },
+  "avgBookmarksPerFolderLabel": {
+    "message": "平均每文件夹书签数"
+  },
+  "organizationScoreLabel": {
+    "message": "组织评分"
+  },
+  "topKeywordsLabel": {
+    "message": "常用关键词"
+  },
+  "uniqueDomainsLabel": {
+    "message": "不同域名数"
+  },
+  "httpsRatioLabel": {
+    "message": "HTTPS 比例"
+  },
+  "oldestDomainLabel": {
+    "message": "最早域名年龄"
+  },
+  "duplicateUrlsLabel": {
+    "message": "重复网址",
+    "description": "重复URL统计的标签"
+  },
+  "cleanerTab": {
+    "message": "书签清理"
+  },
+  "profileTab": {
+    "message": "书签画像"
+  },
+  "deselectAll": {
+    "message": "取消全选"
+  },
+  "errorExplanation_connectionError": {
+    "message": "无法建立连接到服务器，可能是网络问题或服务器已关闭"
+  },
+  "errorExplanation_dnsError": {
+    "message": "无法解析域名，该网站可能已不存在或域名已过期"
+  },
+  "errorExplanation_requestTimeout": {
+    "message": "请求超时，服务器响应时间过长"
+  },
+  "errorExplanation_sslError": {
+    "message": "网站的安全证书存在问题，可能存在安全风险"
+  },
+  "errorExplanation_pageNotFound": {
+    "message": "页面不存在，可能已被删除或移动到其他位置"
+  },
+  "errorExplanation_accessDenied": {
+    "message": "访问被拒绝，可能需要登录或没有权限访问"
+  },
+  "errorExplanation_serverError": {
+    "message": "服务器内部错误，网站可能存在技术问题"
+  },
+  "errorExplanation_emptyFolder": {
+    "message": "此文件夹不包含任何书签"
+  },
+  "errorExplanation_tooManyRedirects": {
+    "message": "重定向次数过多，可能存在循环跳转"
+  },
+  "errorExplanation_networkError": {
+    "message": "网络连接错误，请检查您的网络连接"
+  },
+  "cancelScan": {
+    "message": "取消扫描"
+  },
+  "errorExplanation_unknown": {
+    "message": "检查此书签时发生未知错误"
+  },
+  "errorExplanation_invalidUrl": {
+    "message": "URL 格式无效或格式错误"
+  },
+  "errorExplanation_blockedAccess": {
+    "message": "访问此网站被浏览器或安全设置阻止"
+  },
+  "errorExplanation_all": {
+    "message": "显示所有项目，包括无效书签和空文件夹"
+  },
+  "errorExplanation_httpError": {
+    "message": "访问此书签时服务器返回 HTTP 错误"
+  },
+  "errorExplanation_invalidProtocol": {
+    "message": "URL 使用了不支持或效的协议"
+  },
+  "errorType_badRequest": {
+    "message": "请求无效 (400)"
+  },
+  "errorType_unauthorized": {
+    "message": "未经授权 (401)"
+  },
+  "errorType_forbidden": {
+    "message": "禁止访问 (403)"
+  },
+  "errorType_methodNotAllowed": {
+    "message": "方法不允许 (405)"
+  },
+  "errorType_teapot": {
+    "message": "我是茶壶 (418)"
+  },
+  "errorType_tooManyRequests": {
+    "message": "请求过于频繁 (429)"
+  },
+  "errorType_badGateway": {
+    "message": "网关错误 (502)"
+  },
+  "errorType_serviceUnavailable": {
+    "message": "服务不可用 (503)"
+  },
+  "errorType_gatewayTimeout": {
+    "message": "网关超时 (504)"
+  },
+  "errorType_nonStandard777": {
+    "message": "非标准错误 (777)"
+  },
+  "errorType_nonStandard468": {
+    "message": "非标准错误 (468)"
+  },
+  "errorExplanation_badRequest": {
+    "message": "由于客户端错误，服务器无法处理请求"
+  },
+  "errorExplanation_unauthorized": {
+    "message": "访问此资源需要身份验证"
+  },
+  "errorExplanation_forbidden": {
+    "message": "服务器理解请求但拒绝授权"
+  },
+  "errorExplanation_methodNotAllowed": {
+    "message": "此资源不支持该请求方法"
+  },
+  "errorExplanation_teapot": {
+    "message": "这个服务器是个茶壶，拒绝冲咖啡（RFC 2324 愚人节玩笑）"
+  },
+  "errorExplanation_tooManyRequests": {
+    "message": "在指定时间内发送了太多请求"
+  },
+  "errorExplanation_badGateway": {
+    "message": "服务器从上游服务器收到无效响应"
+  },
+  "errorExplanation_serviceUnavailable": {
+    "message": "服务器暂时无法处理请求"
+  },
+  "errorExplanation_gatewayTimeout": {
+    "message": "上游服务器未能及时响应"
+  },
+  "errorExplanation_nonStandard777": {
+    "message": "发生非标准 HTTP 错误 (错误 777)"
+  },
+  "errorExplanation_nonStandard468": {
+    "message": "发生非标准 HTTP 错误 (错误 468)"
+  },
+  "scanDuration": {
+    "message": "扫描用时"
+  },
+  "collectorTitle_1": {
+    "message": "初级收藏家"
+  },
+  "collectorTitle_2": {
+    "message": "业余收藏家"
+  },
+  "collectorTitle_3": {
+    "message": "进阶收藏家"
+  },
+  "collectorTitle_4": {
+    "message": "专业收藏家"
+  },
+  "collectorTitle_5": {
+    "message": "精英收藏家"
+  },
+  "collectorTitle_6": {
+    "message": "大师收藏家"
+  },
+  "collectorTitle_7": {
+    "message": "专家收藏家"
+  },
+  "collectorTitle_8": {
+    "message": "传奇收藏家"
+  },
+  "collectorTitle_9": {
+    "message": "终极收藏家"
+  },
+  "collectorTitle_10": {
+    "message": "神级收藏家"
+  },
+  "shareModalTitle": {
+    "message": "生成书签画像"
+  },
+  "enterNickname": {
+    "message": "请输入您的昵称："
+  },
+  "pleaseEnterNickname": {
+    "message": "请输入昵称"
+  },
+  "shareError": {
+    "message": "生成图片时出错，请重试"
+  },
+  "cancel": {
+    "message": "取消"
+  },
+  "confirm": {
+    "message": "确认"
+  },
+  "editNickname": {
+    "message": "修改昵称"
+  },
+  "editNicknameTitle": {
+    "message": "编辑昵称"
+  },
+    "bookmarkProfileTitle": {
+      "message": "懒猫$NICKNAME$的书签画像",
+      "placeholders": {
+        "nickname": {
+          "content": "$1"
+        }
+      }
+    },
+  "privacyNotice": {
+    "message": "所有功能在本地运行，不会上传任何数据"
+  },
+  "localProcessing": {
+    "message": "本地处理中..."
+  },
+  "privacyGuarantee": {
+    "message": "隐私保障：本扩展完全离线运行，确保您的书签数据安全"
+  },
+  "catMessage1": {
+    "message": "喵~ 正在认真检查每个书签哦"
+  },
+  "catMessage2": {
+    "message": "让我帮你清理一下书签吧！"
+  },
+  "catMessage3": {
+    "message": "发现好多失效的链接呢..."
+  },
+  "catMessage4": {
+    "message": "别急，我在努力工作中~"
+  },
+  "catMessage5": {
+    "message": "书签太多了，得休息一下喵"
+  },
+  "catMessage6": {
+    "message": "主人等等我，马上就好了"
+  },
+  "catMessage7": {
+    "message": "喵喵喵，发现一个空文件夹"
+  },
+  "catMessage8": {
+    "message": "让我们一起整理书签吧！"
+  },
+  "catMessage9": {
+    "message": "保持书签整洁很重要哦"
+  },
+  "catMessage10": {
+    "message": "我可是整理书签的小能手呢"
+  },
+  "catMessage11": {
+    "message": "主人的书签真是太乱啦~"
+  },
+  "catMessage12": {
+    "message": "喵呜~这么多无效链接要清理"
+  },
+  "catMessage13": {
+    "message": "整理书签最适合我啦！"
+  },
+  "catMessage14": {
+    "message": "主人不要着急，让我慢慢找~"
+  },
+  "catMessage15": {
+    "message": "喵喵喵，发现了好多宝藏呢"
+  },
+  "catMessage16": {
+    "message": "这些书签我都检查过啦"
+  },
+  "catMessage17": {
+    "message": "主人收藏了好多有趣的网页呢"
+  },
+  "catMessage18": {
+    "message": "让我帮你整理得井井有条~"
+  },
+  "catMessage19": {
+    "message": "喵~这些失效的链接就交给我吧"
+  },
+  "catMessage20": {
+    "message": "整理书签也是一种享受呢"
+  },
+  "newTab": {
+    "message": "书签新标签页"
+  },
+  "brandName": {
+    "message": "猫咪书签清理"
+  },
+  "domainList": {
+    "message": "相关域名",
+    "description": "Domain list title in tooltip"
+  },
+  "andMore": {
+    "message": "还有 $1 个域名...",
+    "description": "Text showing how many more domains exist"
+  },
+  "setTimeoutTitle": {
+    "message": "设置超时时间"
+  },
+  "timeoutLabel": {
+    "message": "请设置每个链接的检查超时时间（秒）："
+  },
+  "timeoutExplanation": {
+    "message": "超时时间决定了检查每个链接时的最长等待时间。时间越长，检查越充分，但整体扫描时间会更久；时间越短，扫描越快，但可能会误判部分加载较慢的网站。"
+  },
+  "timeoutTip1": {
+    "message": "• 建议值：10-15 秒"
+  },
+  "timeoutTip2": {
+    "message": "• 网络较差时建议设置更长时间"
+  },
+  "timeoutTip3": {
+    "message": "• 链接较多时可以适当缩短时间"
+  },
+  "scanSettings": {
+    "message": "扫描设置"
+  },
+  "cannotChangeSettingsDuringScan": {
+    "message": "扫描过程中无法修改设置"
+  },
+  "confirmNavigation": {
+    "message": "切换页面确认"
+  },
+  "confirmNavigationMessage": {
+    "message": "正在扫描书签，切换页面将中断扫描。是否确认切换？"
+  },
+  "errorType_duplicate": {
+    "message": "重复书签"
+  },
+  "errorExplanation_duplicate": {
+    "message": "具有相同URL的重复书签"
+  },
+  "invalidLinksTab": {
+    "message": "失效链接"
+  },
+  "duplicatesTab": {
+    "message": "重复书签"
+  },
+  "duplicatesTitle": {
+    "message": "重复书签清理"
+  },
+  "duplicatesDescription": {
+    "message": "查找并清理具有相同 URL 的重复书签"
+  },
+  "duplicateGroups": {
+    "message": "重复组数"
+  },
+  "duplicateItems": {
+    "message": "重复项目"
+  },
+  "keepNewest": {
+    "message": "保留最新"
+  },
+  "keepOldest": {
+    "message": "保留最早"
+  },
+  "keepManual": {
+    "message": "手动选择"
+  },
+  "duplicateLocation": {
+    "message": "所在位置"
+  },
+  "duplicateAddTime": {
+    "message": "添加时间"
+  },
+  "noDuplicates": {
+    "message": "✓ 未发现重复书签"
+  },
+  "scanForDuplicates": {
+    "message": "查找重复"
+  },
+  "duplicateGroupsCount": {
+    "message": "共发现 $COUNT$ 组重复书签",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "duplicateItemsCount": {
+    "message": "可清理 $COUNT$ 个重复项目",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmDeleteDuplicates": {
+    "message": "确定要删除选中的 $COUNT$ 个重复书签吗？",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "duplicateCleanSuccess": {
+    "message": "成功清理 $COUNT$ 个重复书签",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "scanning": {
+    "message": "正在扫描..."
+  },
+  "processingDuplicates": {
+    "message": "正在处理..."
+  },
+  "duplicateUrlCount": {
+    "message": "重复网址"
+  },
+  "duplicateBookmarkCount": {
+    "message": "重复书签"
+  },
+  "invalidBookmarksTab": {
+    "message": "失效书签"
+  },
+  "addedTime": {
+    "message": "添加时间"
+  },
+  "unknownTime": {
+    "message": "未知时间"
+  },
+  "aboutAuthor": {
+    "message": "关于作者"
+  },
+  "deleteSuccessBookmarks": {
+    "message": "成功删除 $1 个失效书签",
+    "description": "Successfully deleted bookmarks message"
+  },
+  "deleteSuccessFolders": {
+    "message": "成功删除 $1 个空文件夹",
+    "description": "Successfully deleted folders message"
+  },
+  "deleteSuccessMixed": {
+    "message": "成功删除 $1 个失效书签和 $2 个空文件夹",
+    "description": "Successfully deleted both bookmarks and folders message"
+  },
+  "errorDeleting": {
+    "message": "删除书签时出错",
+    "description": "Error while deleting bookmarks"
+  },
+  "cancelSelection": {
+    "message": "取消选择"
+  },
+  "scanCompleteTitle": {
+    "message": "书签状态良好！"
+  },
+  "scanCompleteDesc": {
+    "message": "暂时没有发现失效的书签，也没有发现空文件夹哟"
+  },
+  "nextScanTip": {
+    "message": "建议每隔 1-2 个月进行一次检查"
+  },
+  "noDuplicatesTitle": {
+    "message": "未发现重复书签！"
+  },
+  "noDuplicatesDesc": {
+    "message": "暂时没有发现重复的书签，继续保持哦"
+  }
+}
+
+

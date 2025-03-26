@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookmark Profile</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Bookmark Profile is a tool that helps you analyze your bookmarks and improve your bookmark management.">
+    <meta name="language" content="zh-CN">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+<div class="app-header">
+    <nav class="nav-tabs">
+        <div class="brand">
+            <img src="../../public/icons/logo.jpg" alt="Lazy Cat Bookmark Cleaner" class="brand-logo">
+            <span class="brand-name" data-i18n="brandName">猫咪书签清理</span>
+        </div>
+        <div class="nav-links">
+            <a href="../index/index.html" class="nav-tab">
+                <span class="tab-icon">🔍</span>
+                <span data-i18n="invalidBookmarksTab">失效书签</span>
+            </a>
+            <a href="../duplicates/index.html" class="nav-tab">
+                <span class="tab-icon">🔄</span>
+                <span data-i18n="duplicatesTab">重复书签</span>
+            </a>
+            <a href="../profile/index.html" class="nav-tab active">
+                <span class="tab-icon">📊</span>
+                <span data-i18n="profileTab">书签画像</span>
+            </a>
+            <a href="https://github.com/waahah/TabMark" class="nav-tab" target="_blank">
+                <span class="tab-icon">📑</span>
+                <span data-i18n="newTab">书签新标签页</span>
+            </a>
+            <a href="https://waahah.xyz/about/" class="nav-tab" target="_blank">
+                <span class="tab-icon">👨‍💻</span>
+                <span data-i18n="aboutAuthor">关于作者</span>
+            </a>
+        </div>
+    </nav>
+</div>
+
+    <div class="container">
+        <div class="bookmark-profile">
+            <div class="profile-header">
+                <div class="profile-title-row">
+                    <div class="profile-title">
+                        <h2>
+                            <span class="nickname"></span>
+                            <span class="profile-text"></span>
+                        </h2>
+                        <div class="level-badge">
+                            <span class="level"></span>
+                            <span class="collector" data-i18n="collectorTitle"></span>
+                        </div>
+                    </div>
+                    <button class="share-button" data-i18n="shareProfile">Share</button>
+                </div>
+                <div class="profile-date"></div>
+            </div>
+
+            <!-- 主要内容区 -->
+            <div class="profile-content">
+                <!-- 左侧概览区 -->
+                <div class="profile-overview">
+                    <h3 data-i18n="overview" class="overview-title">Overview</h3>
+                    <div class="overview-stats">
+                        <div class="stat-card">
+                            <div class="card-label" data-i18n="totalBookmarksLabel">Total Bookmarks</div>
+                            <div class="card-value" id="total-bookmarks">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="card-label" data-i18n="foldersLabel">Folders</div>
+                            <div class="card-value" id="folders-count">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="card-label" data-i18n="collectionDaysLabel">Collection Days</div>
+                            <div class="card-value" id="collection-days">-</div>
+                        </div>
+                    </div>
+
+                    <!-- 添加分类标签容器 -->
+                    <div class="category-tags">
+                        <!-- 标签将由 JS 动态生成 -->
+                    </div>
+
+                    <!-- 添加趋势图容器 -->
+                    <div class="trend-chart">
+                        <div class="chart-container">
+                            <svg id="trend-svg" width="100%" height="200" preserveAspectRatio="xMidYMid meet">
+                                <!-- Y轴 -->
+                                <g class="y-axis"></g>
+                                <!-- X轴 -->
+                                <g class="x-axis"></g>
+                                <!-- 图表内容 -->
+                                <g class="chart-content">
+                                    <path class="trend-line"></path>
+                                    <g class="data-points"></g>
+                                </g>
+                                <!-- 网格线 -->
+                                <g class="grid-lines"></g>
+                            </svg>
+                            <!-- 工具提示 -->
+                            <div id="chart-tooltip" class="chart-tooltip">
+                                <div class="tooltip-date"></div>
+                                <div class="tooltip-value"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧域名分析 -->
+                <div class="domain-analysis">
+                    <h3 data-i18n="domainAnalysis">Domain Analysis</h3>
+                    <div class="domain-list">
+                        <!-- 域名列表由 JS 动态生成 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部统计卡片区域 -->
+            <div class="stats-rows">
+                <!-- 第一行统计卡片 -->
+                <div class="stats-row first-row">
+                    <div class="stat-card">
+                        <div class="card-label" data-i18n="largestFolderLabel">Largest Folder</div>
+                        <div class="card-value">-</div>
+                        <div class="card-subtext">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-label" data-i18n="emptyFoldersLabel">Empty Folders</div>
+                        <div class="card-value">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-label" data-i18n="folderMaxDepthLabel">Folder Max Depth</div>
+                        <div class="card-value">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-label" data-i18n="oldestBookmarkLabel">Oldest Bookmark</div>
+                        <div class="card-value">-</div>
+                        <div class="card-subtext">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-label" data-i18n="latestBookmarkLabel">Latest Bookmark</div>
+                        <div class="card-value">-</div>
+                        <div class="card-subtext">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-label" data-i18n="peakBookmarksLabel">Peak Bookmarks</div>
+                        <div class="card-value">-</div>
+                        <div class="card-subtext">-</div>
+                    </div>
+                </div>
+                
+                <!-- 第二行统计卡片 -->
+                <div class="stats-row second-row">
+                    <div class="stat-card">
+                        <div class="card-label" data-i18n="avgBookmarksPerFolderLabel">Avg Bookmarks/Folder</div>
+                        <div class="card-value">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-label" data-i18n="organizationScoreLabel">Organization Score</div>
+                        <div class="card-value">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-label" data-i18n="topKeywordsLabel">Top Keywords</div>
+                        <div class="card-value">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-label" data-i18n="uniqueDomainsLabel">Unique Domains</div>
+                        <div class="card-value">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-label" data-i18n="httpsRatioLabel">HTTPS Ratio</div>
+                        <div class="card-value">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-label" data-i18n="duplicateUrlsLabel">Duplicate URLs</div>
+                        <div class="card-value">-</div>
+                        <div class="card-subtext">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" data-i18n="shareModalTitle">分享书签画像</h3>
+            </div>
+            <div class="modal-body">
+                <div data-i18n="enterNickname">请输入您的昵称：</div>
+                <input type="text" class="nickname-input" placeholder="昵称" maxlength="20">
+            </div>
+            <div class="modal-footer">
+                <button class="modal-button cancel" data-i18n="cancel">取消</button>
+                <button class="modal-button confirm" data-i18n="confirm">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../scripts/bookmarkProfile.js"></script>
+</body>
+</html> 

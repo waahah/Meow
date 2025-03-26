@@ -1,0 +1,669 @@
+{
+  "extName": {
+    "message": "kitty Bookmark Cleaner"
+  },
+  "extDescription": {
+    "message": "Clean invalid bookmarks, duplicates and empty folders with one click. Generate bookmark profile. All features run locally to protect your privacy"
+  },
+  "totalBookmarks": {
+    "message": "Total Bookmarks"
+  },
+  "invalidLinks": {
+    "message": "Links to Check"
+  },
+  "emptyFolders": {
+    "message": "Empty Folders"
+  },
+  "scanBookmarks": {
+    "message": "Scan Bookmarks"
+  },
+  "allValid": {
+    "message": "✓ All bookmarks are valid and organized!"
+  },
+  "successCleaned": {
+    "message": "Successfully cleaned $COUNT$ items",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorScanning": {
+    "message": "Error scanning bookmarks: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCleaning": {
+    "message": "Error cleaning bookmarks: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "totalBookmarksCount": {
+    "message": "$SCANNED$/$TOTAL$",
+    "placeholders": {
+      "scanned": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "selectAll": {
+    "message": "Select All"
+  },
+  "deleteSelected": {
+    "message": "Delete Selected"
+  },
+  "confirmDelete": {
+    "message": "Are you sure you want to delete $COUNT$ selected items?",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorType_connectionError": {
+    "message": "Connection Failed"
+  },
+  "errorType_dnsError": {
+    "message": "Domain Not Found"
+  },
+  "errorType_requestTimeout": {
+    "message": "Request Timeout"
+  },
+  "errorType_sslError": {
+    "message": "Security Certificate Error"
+  },
+  "errorType_pageNotFound": {
+    "message": "Page Not Found"
+  },
+  "errorType_accessDenied": {
+    "message": "Access Denied"
+  },
+  "errorType_serverError": {
+    "message": "Server Error"
+  },
+  "errorType_emptyFolder": {
+    "message": "Empty Folder"
+  },
+  "errorType_all": {
+    "message": "All Items"
+  },
+  "errorType_tooManyRedirects": {
+    "message": "Too Many Redirects"
+  },
+  "errorType_networkError": {
+    "message": "Network Error"
+  },
+  "errorType_unknown": {
+    "message": "Unknown Error"
+  },
+  "bookmarkProfile": {
+    "message": "LazyCat Bookmark Profile"
+  },
+  "profileLevel": {
+    "message": "LazyCat Level"
+  },
+  "profileTimeSpan": {
+    "message": "Collection Time"
+  },
+  "profileOrgScore": {
+    "message": "Organization Score"
+  },
+  "years": {
+    "message": "years"
+  },
+  "collectorTitle": {
+    "message": "Collector"
+  },
+  "totalBookmarksLabel": {
+    "message": "Total Bookmarks"
+  },
+  "foldersLabel": {
+    "message": "Folders"
+  },
+  "maxDepthLabel": {
+    "message": "Folder Max Depth"
+  },
+  "collectionTimeLabel": {
+    "message": "Collection Days"
+  },
+  "achievements": {
+    "message": "Achievements"
+  },
+  "domainAnalysis": {
+    "message": "Domain Analysis"
+  },
+  "folderInsights": {
+    "message": "Folder Insights"
+  },
+  "timeInsights": {
+    "message": "Timeline"
+  },
+  "bookmarkTags": {
+    "message": "Tags"
+  },
+  "bookmarks": {
+    "message": "bookmarks"
+  },
+  "subFolders": {
+    "message": "subfolders"
+  },
+  "bookmarksCount": {
+    "message": "bookmarks",
+    "description": "Text displayed in timeline tooltip"
+  },
+  "peakMonth": {
+    "message": "Peak Month"
+  },
+  "durationDays": {
+    "message": "Days of Collection"
+  },
+  "yearlyGrowth": {
+    "message": "Year-over-Year Growth"
+  },
+  "recentAdditions": {
+    "message": "Added in Last 30 Days"
+  },
+  "oldestBookmark": {
+    "message": "First Bookmark"
+  },
+  "organizationTips": {
+    "message": "Organization Tips"
+  },
+  "growthRate": {
+    "message": "$RATE$%",
+    "placeholders": {
+      "rate": {
+        "content": "$1"
+      }
+    }
+  },
+  "overview": {
+    "message": "Overview"
+  },
+  "shareProfile": {
+    "message": "Share"
+  },
+  "collectionDaysLabel": {
+    "message": "Collection Days"
+  },
+  "largestFolderLabel": {
+    "message": "Largest Folder"
+  },
+  "emptyFoldersLabel": {
+    "message": "Empty Folders"
+  },
+  "oldestBookmarkLabel": {
+    "message": "Oldest Bookmark"
+  },
+  "latestBookmarkLabel": {
+    "message": "Latest Bookmark"
+  },
+  "bookmarkPeakLabel": {
+    "message": "Peak Bookmarks"
+  },
+  "avgBookmarksPerFolderLabel": {
+    "message": "Bookmarks per Folder"
+  },
+  "organizationScoreLabel": {
+    "message": "Organization Score"
+  },
+  "topKeywordsLabel": {
+    "message": "Top Keywords"
+  },
+  "uniqueDomainsLabel": {
+    "message": "Unique Domains"
+  },
+  "httpsRatioLabel": {
+    "message": "HTTPS Ratio"
+  },
+  "oldestDomainLabel": {
+    "message": "Oldest Domain Age"
+  },
+  "days": {
+    "message": "days"
+  },
+  "duplicateUrlsLabel": {
+    "message": "Duplicate URLs",
+    "description": "Label for duplicate URLs statistics"
+  },
+  "cleanerTab": {
+    "message": "Bookmark Cleaner"
+  },
+  "profileTab": {
+    "message": "Bookmark Profile"
+  },
+  "deselectAll": {
+    "message": "Deselect All"
+  },
+  "errorExplanation_connectionError": {
+    "message": "Unable to establish connection to the server. The server might be down or there might be network issues"
+  },
+  "errorExplanation_dnsError": {
+    "message": "Cannot resolve domain name. The website might no longer exist or the domain has expired"
+  },
+  "errorExplanation_requestTimeout": {
+    "message": "Request timed out. The server took too long to respond"
+  },
+  "errorExplanation_sslError": {
+    "message": "There are issues with the website's security certificate"
+  },
+  "errorExplanation_pageNotFound": {
+    "message": "The page does not exist. It might have been deleted or moved"
+  },
+  "errorExplanation_accessDenied": {
+    "message": "Access denied. You might need to log in or lack permission to access this page"
+  },
+  "errorExplanation_serverError": {
+    "message": "Server internal error. The website might be experiencing technical issues"
+  },
+  "errorExplanation_emptyFolder": {
+    "message": "This folder contains no bookmarks"
+  },
+  "errorExplanation_tooManyRedirects": {
+    "message": "Too many redirects. There might be a redirect loop"
+  },
+  "errorExplanation_networkError": {
+    "message": "Network connection error. Please check your internet connection"
+  },
+  "cancelScan": {
+    "message": "Cancel Scan"
+  },
+  "errorExplanation_unknown": {
+    "message": "An unknown error occurred while checking this bookmark"
+  },
+  "errorExplanation_invalidUrl": {
+    "message": "The URL format is invalid or malformed"
+  },
+  "errorExplanation_blockedAccess": {
+    "message": "Access to this site is blocked by the browser or security settings"
+  },
+  "errorExplanation_all": {
+    "message": "Shows all items including invalid bookmarks and empty folders"
+  },
+  "errorExplanation_httpError": {
+    "message": "The server returned an HTTP error while accessing this bookmark"
+  },
+  "errorExplanation_invalidProtocol": {
+    "message": "The URL uses an unsupported or invalid protocol"
+  },
+  "errorType_badRequest": {
+    "message": "Bad Request (400)"
+  },
+  "errorType_unauthorized": {
+    "message": "Unauthorized (401)"
+  },
+  "errorType_forbidden": {
+    "message": "Forbidden (403)"
+  },
+  "errorType_methodNotAllowed": {
+    "message": "Method Not Allowed (405)"
+  },
+  "errorType_teapot": {
+    "message": "I'm a Teapot (418)"
+  },
+  "errorType_tooManyRequests": {
+    "message": "Too Many Requests (429)"
+  },
+  "errorType_badGateway": {
+    "message": "Bad Gateway (502)"
+  },
+  "errorType_serviceUnavailable": {
+    "message": "Service Unavailable (503)"
+  },
+  "errorType_gatewayTimeout": {
+    "message": "Gateway Timeout (504)"
+  },
+  "errorType_nonStandard777": {
+    "message": "Non-standard Error (777)"
+  },
+  "errorType_nonStandard468": {
+    "message": "Non-standard Error (468)"
+  },
+  "errorExplanation_badRequest": {
+    "message": "The server cannot process the request due to client error"
+  },
+  "errorExplanation_unauthorized": {
+    "message": "Authentication is required to access this resource"
+  },
+  "errorExplanation_forbidden": {
+    "message": "The server understood the request but refuses to authorize it"
+  },
+  "errorExplanation_methodNotAllowed": {
+    "message": "The request method is not supported for this resource"
+  },
+  "errorExplanation_teapot": {
+    "message": "This server is a teapot and refuses to brew coffee (RFC 2324 April Fools' joke)"
+  },
+  "errorExplanation_tooManyRequests": {
+    "message": "You have sent too many requests in a given amount of time"
+  },
+  "errorExplanation_badGateway": {
+    "message": "The server received an invalid response from an upstream server"
+  },
+  "errorExplanation_serviceUnavailable": {
+    "message": "The server is temporarily unable to handle the request"
+  },
+  "errorExplanation_gatewayTimeout": {
+    "message": "The upstream server failed to respond in time"
+  },
+  "errorExplanation_nonStandard777": {
+    "message": "A non-standard HTTP error occurred (Error 777)"
+  },
+  "errorExplanation_nonStandard468": {
+    "message": "A non-standard HTTP error occurred (Error 468)"
+  },
+  "scanDuration": {
+    "message": "Scan Duration"
+  },
+  "collectorTitle_1": {
+    "message": "Novice Collector"
+  },
+  "collectorTitle_2": {
+    "message": "Amateur Collector"
+  },
+  "collectorTitle_3": {
+    "message": "Advanced Collector"
+  },
+  "collectorTitle_4": {
+    "message": "Professional Collector"
+  },
+  "collectorTitle_5": {
+    "message": "Elite Collector"
+  },
+  "collectorTitle_6": {
+    "message": "Master Collector"
+  },
+  "collectorTitle_7": {
+    "message": "Expert Collector"
+  },
+  "collectorTitle_8": {
+    "message": "Legendary Collector"
+  },
+  "collectorTitle_9": {
+    "message": "Ultimate Collector"
+  },
+  "collectorTitle_10": {
+    "message": "Divine Collector"
+  },
+  "shareModalTitle": {
+    "message": "Generate Bookmark Profile"
+  },
+  "enterNickname": {
+    "message": "Please enter your nickname:"
+  },
+  "pleaseEnterNickname": {
+    "message": "Please enter a nickname"
+  },
+  "shareError": {
+    "message": "Error generating image, please try again"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "confirm": {
+    "message": "Confirm"
+  },
+  "nicknameError": {
+    "message": "Error saving nickname, please try again"
+  },
+  "nicknameNotFound": {
+    "message": "Nickname not found, please refresh the page to set up"
+  },
+  "bookmarkProfileTitle": {
+    "message": "$NICKNAME$'s Bookmark Profile",
+    "placeholders": {
+      "nickname": {
+        "content": "$1"
+      }
+    }
+  },
+  "editNickname": {
+    "message": "Edit Nickname"
+  },
+  "editNicknameTitle": {
+    "message": "Edit Nickname"
+  },
+  "privacyNotice": {
+    "message": "All features run locally without uploading any data"
+  },
+  "localProcessing": {
+    "message": "Processing locally..."
+  },
+  "privacyGuarantee": {
+    "message": "Privacy Guarantee: This extension runs completely offline to ensure your bookmark data security"
+  },
+  "catMessage1": {
+    "message": "Meow~ Checking each bookmark carefully"
+  },
+  "catMessage2": {
+    "message": "Let me help you clean up your bookmarks!"
+  },
+  "catMessage3": {
+    "message": "Found quite a few invalid links..."
+  },
+  "catMessage4": {
+    "message": "Don't worry, I'm working hard~"
+  },
+  "catMessage5": {
+    "message": "So many bookmarks, need a little break meow"
+  },
+  "catMessage6": {
+    "message": "Wait for me, almost done!"
+  },
+  "catMessage7": {
+    "message": "Meow meow, found an empty folder"
+  },
+  "catMessage8": {
+    "message": "Let's organize bookmarks together!"
+  },
+  "catMessage9": {
+    "message": "Keeping bookmarks tidy is important"
+  },
+  "catMessage10": {
+    "message": "I'm an expert at organizing bookmarks!"
+  },
+  "catMessage11": {
+    "message": "Your bookmarks are quite messy~"
+  },
+  "catMessage12": {
+    "message": "Meow~ So many invalid links to clean"
+  },
+  "catMessage13": {
+    "message": "Organizing bookmarks is my specialty!"
+  },
+  "catMessage14": {
+    "message": "Take it easy, I'm searching carefully~"
+  },
+  "catMessage15": {
+    "message": "Meow meow, found some treasures here"
+  },
+  "catMessage16": {
+    "message": "I've checked all these bookmarks"
+  },
+  "catMessage17": {
+    "message": "You've saved so many interesting pages"
+  },
+  "catMessage18": {
+    "message": "Let me help you organize everything~"
+  },
+  "catMessage19": {
+    "message": "Meow~ Leave these invalid links to me"
+  },
+  "catMessage20": {
+    "message": "Organizing bookmarks is also enjoyable"
+  },
+  "newTab": {
+    "message": "Bookmark New Tab"
+  },
+  "brandName": {
+    "message": "Kitty Bookmark Cleaner"
+  },
+  "setTimeoutTitle": {
+    "message": "Set Timeout"
+  },
+  "timeoutLabel": {
+    "message": "Set timeout duration for each link check (seconds):"
+  },
+  "timeoutExplanation": {
+    "message": "Timeout determines the maximum waiting time when checking each link. Longer timeouts provide more thorough checks but increase overall scanning time; shorter timeouts speed up scanning but may misjudge slow-loading sites."
+  },
+  "timeoutTip1": {
+    "message": "• Recommended: 10-15 seconds"
+  },
+  "timeoutTip2": {
+    "message": "• Set longer times for poor network conditions"
+  },
+  "timeoutTip3": {
+    "message": "• Can be shortened when checking many links"
+  },
+  "scanSettings": {
+    "message": "Scan Settings"
+  },
+  "cannotChangeSettingsDuringScan": {
+    "message": "Cannot change settings during scan"
+  },
+  "confirmNavigation": {
+    "message": "Confirm Navigation"
+  },
+  "confirmNavigationMessage": {
+    "message": "Bookmark scan is in progress. Navigating away will interrupt the scan. Do you want to continue?"
+  },
+  "invalidLinksTab": {
+    "message": "Invalid Links"
+  },
+  "duplicatesTab": {
+    "message": "Duplicates"
+  },
+  "duplicatesTitle": {
+    "message": "Duplicate Bookmarks"
+  },
+  "duplicatesDescription": {
+    "message": "Find and clean bookmarks with identical URLs"
+  },
+  "duplicateGroups": {
+    "message": "Duplicate Groups"
+  },
+  "duplicateItems": {
+    "message": "Duplicate Items"
+  },
+  "keepNewest": {
+    "message": "Keep Newest"
+  },
+  "keepOldest": {
+    "message": "Keep Oldest"
+  },
+  "keepManual": {
+    "message": "Manual Select"
+  },
+  "duplicateLocation": {
+    "message": "Location"
+  },
+  "duplicateAddTime": {
+    "message": "Added Time"
+  },
+  "noDuplicates": {
+    "message": "✓ No duplicate bookmarks found"
+  },
+  "scanForDuplicates": {
+    "message": "Find Duplicates"
+  },
+  "duplicateGroupsCount": {
+    "message": "Found $COUNT$ duplicate groups",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "duplicateItemsCount": {
+    "message": "$COUNT$ items can be cleaned",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmDeleteDuplicates": {
+    "message": "Are you sure you want to delete $COUNT$ selected duplicate bookmarks?",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "duplicateCleanSuccess": {
+    "message": "Successfully cleaned $COUNT$ duplicate bookmarks",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "scanning": {
+    "message": "Scanning..."
+  },
+  "processingDuplicates": {
+    "message": "Processing..."
+  },
+  "duplicateUrlCount": {
+    "message": "Duplicate URLs"
+  },
+  "duplicateBookmarkCount": {
+    "message": "Duplicate Bookmarks"
+  },
+  "invalidBookmarksTab": {
+    "message": "Invalid Bookmarks"
+  },
+  "addedTime": {
+    "message": "Added Time"
+  },
+  "unknownTime": {
+    "message": "Unknown time"
+  },
+  "aboutAuthor": {
+    "message": "Support"
+  },
+  "deleteSuccessBookmarks": {
+    "message": "Successfully deleted $1 invalid bookmarks",
+    "description": "Successfully deleted bookmarks message"
+  },
+  "deleteSuccessFolders": {
+    "message": "Successfully deleted $1 empty folders",
+    "description": "Successfully deleted folders message"
+  },
+  "deleteSuccessMixed": {
+    "message": "Successfully deleted $1 invalid bookmarks and $2 empty folders",
+    "description": "Successfully deleted both bookmarks and folders message"
+  },
+  "errorDeleting": {
+    "message": "Error deleting bookmarks",
+    "description": "Error while deleting bookmarks"
+  },
+  "cancelSelection": {
+    "message": "Cancel Selection"
+  },
+  "scanCompleteTitle": {
+    "message": "Bookmarks are in good condition!"
+  },
+  "scanCompleteDesc": {
+    "message": "No invalid bookmarks or empty folders found"
+  },
+  "noDuplicatesTitle": {
+    "message": "No duplicate bookmarks found!"
+  },
+  "noDuplicatesDesc": {
+    "message": "No duplicate bookmarks found, keep it up!"
+  },
+  "nextScanTip": {
+    "message": "Recommended to check every 1-2 months"
+  }
+}
