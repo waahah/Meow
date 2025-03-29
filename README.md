@@ -18,19 +18,21 @@
 
 
 ### 本地安装
-CI：使用最新代码自动构建（无需安装环境）
+[CI](https://github.com/waahah/Meow/actions)：使用最新代码自动构建（无需开发环境）
 
-Releases：稳定版
+[Releases](https://github.com/waahah/Meow/releases)：稳定版
 
-Firefox | Edge | Chrome（推荐）
-确保您下载了 extension.zip。
+**Firefox | Edge | Chrome（推荐）**
+> 确保您下载了 [extension.zip](https://github.com/waahah/Meow/releases)。
 
 在 Firefox 浏览器中打开 `about:debugging#/runtime/this-firefox`，然后选择“加载附加组件”选项并选择 `extension-firefox.zip` 文件。
+
 在 Edge 浏览器中打开 `edge://extensions` 或者在 Chrome 浏览器中打开 `chrome://extensions` 界面，只需将下载的 `extension-chrome.zip` 文件拖放到浏览器中即可完成安装。
 
-### 环境
+### 开发环境
 
-- `node >= 18` 
+- `node 18.x+`
+- `npm 9.x+`
 
 ### 依赖
 
@@ -57,7 +59,7 @@ npm run lint
 
 ### 运行
 
-```powershell
+```bash
 npm run start:firefox
 
 npm run start:chrome
