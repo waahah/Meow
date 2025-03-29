@@ -1,7 +1,7 @@
 {
-  "name": "kitty-bookmark-cleaner",
+  "name": "meow",
   "version": "1.0.0",
-  "description": "Project Website: https://github.com/waahah/Bookmark-Cleaner",
+  "description": "Project Website: https://github.com/waahah/Meow",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,15 +18,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/waahah/Bookmark-Cleaner.git"
+    "url": "git+https://github.com/waahah/Meow.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/waahah/Bookmark-Cleaner/issues"
+    "url": "https://github.com/waahah/Meow/issues"
   },
-  "homepage": "https://github.com/waahah/Bookmark-Cleaner#readme",
+  "homepage": "https://github.com/waahah/Meow#readme",
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.0.0-beta.32",
     "@rollup/plugin-commonjs": "^28.0.1",

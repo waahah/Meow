@@ -2,11 +2,15 @@
 
 [English](README_EN.md) | [简体中文](README.md)
 
+### 👋介绍
+
 让书签管理变得轻松愉快！一只可爱的猫咪助手，帮你智能清理和整理浏览器书签。
+
+该项目使用 [VExt](https://github.com/waahah/VExt) 模板进行开发。如果没有这个模板，可能无法实现这个项目。
 
 [LazyCat-Bookmark-Cleaner](https://github.com/Alanrk/LazyCat-Bookmark-Cleaner)  的工程化跨平台构建版本，支持以下平台
 
-- [X] Firefox [扩展商店下载](https://addons.mozilla.org/zh-CN/firefox/addon/%E7%8C%AB%E5%92%AA%E4%B9%A6%E7%AD%BE%E6%B8%85%E7%90%86/)
+- [X] Firefox
 - [X] Chrome
 - [X] Edge
 
@@ -19,8 +23,8 @@
 ### 依赖
 
 ```bash
-git clone https://github.com/waahah/Bookmark-Cleaner.git
-cd Bookmark-Cleaner
+git clone https://github.com/waahah/Meow.git
+cd Meow
 npm install
 ```
 
@@ -80,6 +84,7 @@ npm run sign:chrome
 
 > 立即开始整理，让你的书签焕然一新！ ✨
 
-### 📄 开源许可
+## ❤️ 鸣谢
 
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+- [VExt](https://github.com/waahah/VExt)
+- [LazyCat-Bookmark-Cleaner](https://github.com/Alanrk/LazyCat-Bookmark-Cleaner)

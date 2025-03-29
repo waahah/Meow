@@ -1,0 +1,65 @@
+name: Release
+
+permissions:
+  contents: write
+  id-token: write
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'  # 监听所有 `v*` 开头的 tag，如 v1.0.0
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      #CHROME_KEY_PATH: chrome-key.pem
+      #EDGE_KEY_PATH: edge-key.pem
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: Install Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: |
+            npm install
+    
+      - name: Build Firefox extension
+        run: |
+          npm run build:firefox
+          cd dist
+          zip -r ../extension-firefox.zip .
+          cd ..
+
+      - name: Build Chrome extension
+        run: |
+          npm run build:chrome
+          cd dist
+          zip -r ../extension-chrome.zip .
+          cd ..
+
+      - name: upload .zip as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: chrome-packed-extensions
+          path: |
+            extension-firefox.zip
+            extension-chrome.zip
+
+      - name: 发布到 GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            extension-firefox.zip
+            extension-chrome.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
