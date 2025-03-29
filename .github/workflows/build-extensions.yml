@@ -1,4 +1,4 @@
-name: Release
+name: CI
 
 permissions:
   contents: write
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 检出代码
+      - name: Check out code
         uses: actions/checkout@v4
 
       - name: Install Node.js 18
@@ -46,12 +46,12 @@ jobs:
       - name: upload .zip as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: chrome-packed-extensions
+          name: packed-extensions
           path: |
             extension-firefox.zip
             extension-chrome.zip
 
-      - name: 发布到 GitHub Release
+      - name: Publish to GitHub Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
