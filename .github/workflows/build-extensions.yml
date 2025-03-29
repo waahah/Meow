@@ -15,9 +15,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      #CHROME_KEY_PATH: chrome-key.pem
-      #EDGE_KEY_PATH: edge-key.pem
 
     steps:
       - name: 检出代码
