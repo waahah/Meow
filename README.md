@@ -16,6 +16,18 @@
 
 ![](https://raw.githubusercontent.com/Alanrk/blogimg/main/Snipaste_2025-01-15_15-00-46.png)
 
+
+### 本地安装
+CI：使用最新代码自动构建（无需安装环境）
+
+Releases：稳定版
+
+Firefox | Edge | Chrome（推荐）
+确保您下载了 extension.zip。
+
+在 Firefox 浏览器中打开 `about:debugging#/runtime/this-firefox`，然后选择“加载附加组件”选项并选择 `extension-firefox.zip` 文件。
+在 Edge 浏览器中打开 `edge://extensions` 或者在 Chrome 浏览器中打开 `chrome://extensions` 界面，只需将下载的 `extension-chrome.zip` 文件拖放到浏览器中即可完成安装。
+
 ### 环境
 
 - `node >= 18` 
