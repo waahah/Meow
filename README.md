@@ -10,7 +10,7 @@
 
 [LazyCat-Bookmark-Cleaner](https://github.com/Alanrk/LazyCat-Bookmark-Cleaner)  的工程化跨平台构建版本，支持以下平台
 
-- [X] Firefox
+- [X] Firefox [扩展商店](https://addons.mozilla.org/zh-CN/firefox/addon/%E7%8C%AB%E5%92%AA%E4%B9%A6%E7%AD%BE%E6%B8%85%E7%90%86/)
 - [X] Chrome
 - [X] Edge
 
